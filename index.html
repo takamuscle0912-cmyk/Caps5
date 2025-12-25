@@ -1,1 +1,50 @@
-Caps5　Quest
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>CAPS5 表示テスト</title>
+  <style>
+    /* 画面全体の余白をなくす */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 左上の固定ヘッダーエリア */
+    .top-left {
+      position: fixed;   /* 常に左上に固定したい場合 */
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;          /* アイコンと文字の間隔 */
+      padding: 8px 12px;
+      background-color: #ffffff;
+    }
+
+    .top-left img {
+      width: 24px;       /* アイコンサイズはお好みで */
+      height: 24px;
+    }
+
+    .top-left span {
+      font-size: 18px;
+      font-weight: bold;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- 左上：アップロード済みアイコン + CAPS5 -->
+  <div class="top-left">
+    <!-- ここで、あなたがアップロードしたアイコンのパスを指定 -->
+    <img src="icon.png" alt="Uploaded icon" />
+    <span>CAPS5</span>
+  </div>
+
+  <!-- 以下は適当なコンテンツ -->
+  <div style="margin-top: 60px; padding: 16px;">
+    ページコンテンツ
+  </div>
+</body>
+</html>
