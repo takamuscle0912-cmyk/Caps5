@@ -81,7 +81,7 @@
 
   <!-- 問題中央配置 -->
   <div class="ques-area">
-    <img src="slides/kimera.png" alt="Question">
+    <img src="slides/q4.png" alt="Question">
   </div>
 
   <!-- 入力フォーム中央配置 -->
@@ -98,8 +98,8 @@
   </div>
 
   <script>
-    const CORRECT_KEYWORD = "ニーナ";
-    const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/key_red/am.png";
+    const CORRECT_KEYWORD = ["88","８８"];
+    const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/key_red/qua.png";
 
     document.getElementById("passwordForm").addEventListener("submit", function(event) {
       event.preventDefault();
@@ -107,7 +107,7 @@
       const input = document.getElementById("keyword").value.trim();
       const errorBox = document.getElementById("errorMessage");
 
-      if (input === CORRECT_KEYWORD) {
+      if (CORRECT_KEYWORD.includes(input)) {
         window.location.href = REDIRECT_URL;
       } else {
         errorBox.textContent = "答えが違います。もう一度入力してください。";
