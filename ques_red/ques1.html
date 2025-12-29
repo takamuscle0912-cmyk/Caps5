@@ -19,11 +19,21 @@
     }
 
     .logo-area img {
-      width: 60%;
+      width: 30%;
+      max-width: 100px; /* 大きすぎ防止 */
+      height: auto;
+    }
+    
+     /* 問題エリア */
+    .ques-area {
+      margin-top: 20px;
+    }
+
+    .ques-area img {
+      width: 100%;
       max-width: 250px; /* 大きすぎ防止 */
       height: auto;
     }
-
     /* 入力フォームエリア */
     .content {
       margin-top: 40px;
@@ -70,12 +80,17 @@
     <img src="caps5_logo.png" alt="Logo">
   </div>
 
+  <!-- 問題中央配置 -->
+  <div class="ques-area">
+    <img src="ques_red/kimera.png" alt="Question">
+  </div>
+
   <!-- 入力フォーム中央配置 -->
   <div class="content">
-    <h2>合言葉を入力してください</h2>
+    <h2>問題の答えを入力してください</h2>
 
     <form id="passwordForm">
-      <input type="text" id="keyword" placeholder="合言葉" required />
+      <input type="text" id="keyword" placeholder="答え" required />
       <br>
       <button type="submit">送信</button>
     </form>
@@ -84,8 +99,8 @@
   </div>
 
   <script>
-    const CORRECT_KEYWORD = "caps5";
-    const REDIRECT_URL = "https://example.com";
+    const CORRECT_KEYWORD = "ニーナ";
+    const REDIRECT_URL = "https://github.com/takamuscle0912-cmyk/Caps5/edit/main/key_red/am.png";
 
     document.getElementById("passwordForm").addEventListener("submit", function(event) {
       event.preventDefault();
@@ -96,7 +111,7 @@
       if (input === CORRECT_KEYWORD) {
         window.location.href = REDIRECT_URL;
       } else {
-        errorBox.textContent = "合言葉が違います。もう一度入力してください。";
+        errorBox.textContent = "答えが違います。もう一度入力してください。";
       }
     });
   </script>
