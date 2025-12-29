@@ -107,7 +107,7 @@
       const input = document.getElementById("keyword").value.trim();
       const errorBox = document.getElementById("errorMessage");
 
-      if (ANSWERS.includes(input)) {
+      if (CORRECT_KEYWORD.includes(input)) {
         window.location.href = REDIRECT_URL;
       } else {
         errorBox.textContent = "答えが違います。もう一度入力してください。";
