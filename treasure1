@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>CAPS5 表示テスト</title>
-
+  <meta charset="UTF-8">
+  <title>Caps5 ADVENTURE</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, sans-serif;
-      background-color: #f5f5f5;
-      text-align: center; /* 全体を中央寄せ */
-    }
-
-    /* ロゴエリア */
-    .logo-area {
-      margin-top: 30px;
-    }
-
-    .logo-area img {
-      width: 60%;
-      max-width: 250px; /* 大きすぎ防止 */
-      height: auto;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background-image: url('backgrand.png'); /* 石碑背景画像 */
+      background-repeat: repeat-y;
+      background-size: cover;
+      background-position: center top;
+      background-attachment: scroll;
     }
 
     /* 入力フォームエリア */
