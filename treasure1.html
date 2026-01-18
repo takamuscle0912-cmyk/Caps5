@@ -52,7 +52,54 @@
       color: red;
       font-size: 18px;
     }
+
+    .correct{
+      margin-top: 15px;
+      color: blue;
+      font-size: 18px;
+    }
   </style>
 </head>
 
 <body>
+
+
+  <!-- 入力フォーム中央配置 -->
+  <div class="content">
+    <h2>一つ目の鍵穴</h2>
+
+    <form id="passwordForm">
+      <input type="text" id="keyword_1" placeholder="鍵穴１" required />
+      <br>
+      <button type="submit">鍵を回す</button>
+    </form>
+
+    <div id="errorMessage" class="error"></div>
+    <div id="correctMessage" class="correct"></div>
+  </div>
+
+  <script>
+
+    TRUE_NUM = 0;
+    const CORRECT_KEYWORD = "caps5";
+    const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/firstpage.html";
+
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const input = document.getElementById("keyword").value.trim();
+      const errorBox = document.getElementById("errorMessage");
+      const correctBox = document.getElementById("correctMessage");
+
+      if (input === CORRECT_KEYWORD) {
+        correctBox.textContent = "鍵が回った。";
+        TRUE_NUM += 1
+      } else {
+        errorBox.textContent = "鍵が回らない。";
+      }
+    });
+  </script>
+
+</body>
+</html>
+
