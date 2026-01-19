@@ -26,7 +26,7 @@ _1<!DOCTYPE html>
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
       margin-bottom: 20px;
       flex-wrap: wrap;
     }
@@ -57,7 +57,7 @@ _1<!DOCTYPE html>
     }
 
     .result {
-      margin-top: 10px;
+      margin-top: 5px;
       font-size: 18px;
       font-weight: bold;
     }
@@ -67,18 +67,32 @@ _1<!DOCTYPE html>
       margin-bottom: 30px;
       padding: 0 20px;
     }
+    
+    .content-section2 {
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.5); /* 説明文の読みやすさを確保 */
+      max-width: 800px;
+      margin: 0 auto 20px;
+      border-radius: 12px;
+    }
+    
+    .content-section2 p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
   </style>
 </head>
 <body>
 
-  <div class="content">
-    <h2 class="description">
+  <div clas = "content-section2">
+    <p>
       宝箱を発見した。中から財宝のにおいがプンプンする。<br>
       5つの鍵穴があるが、なんとなく3つ鍵があれば開きそうだ。
-    </h2>
-
+    </p>
+  </div>
+    
+  <div class="content">
     <div id="form-container"></div>
-
     <button onclick="openChest()">箱を開ける</button>
   </div>
 
@@ -102,7 +116,7 @@ _1<!DOCTYPE html>
       input.id = `input-${i}`;
 
       const button = document.createElement("button");
-      button.textContent = "判定";
+      button.textContent = "鍵を回す";
       button.onclick = () => checkAnswer(i);
 
       const result = document.createElement("div");
