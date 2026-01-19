@@ -16,21 +16,66 @@ _1<!DOCTYPE html>
       background-attachment: scroll;
     }
     
-    .input-group {
-      margin-bottom: 20px;
+    /* 入力フォームエリア */
+    .content {
+      margin-top: 40px;
+      padding: 0 20px;
     }
+
+    .input-group {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 350px;
+      font-size: 22px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      font-size: 22px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      background-color: #005fcc;
+    }
+
     .result {
-      margin-top: 5px;
+      margin-top: 10px;
+      font-size: 18px;
       font-weight: bold;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: red;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <h2>宝箱の鍵を探せ！</h2>
+  <h2 style="padding: 0 20px;">宝箱の鍵を探せ！</h2>
 
-  <div id="form-container"></div>
+  <div class="content" id="form-container"></div>
 
-  <button onclick="openChest()">箱を開ける</button>
+  <div class="content">
+    <button onclick="openChest()">箱を開ける</button>
+  </div>
 
   <script>
     const correctAnswers = ["ルビー", "サファイア", "エメラルド", "ダイヤ", "オパール"];
@@ -52,7 +97,7 @@ _1<!DOCTYPE html>
       input.id = `input-${i}`;
 
       const button = document.createElement("button");
-      button.textContent = "鍵を回す";
+      button.textContent = "判定";
       button.onclick = () => checkAnswer(i);
 
       const result = document.createElement("div");
@@ -61,8 +106,8 @@ _1<!DOCTYPE html>
 
       group.appendChild(input);
       group.appendChild(button);
-      group.appendChild(result);
       container.appendChild(group);
+      container.appendChild(result);
     }
 
     function checkAnswer(index) {
@@ -72,6 +117,7 @@ _1<!DOCTYPE html>
 
       if (results[index]) {
         result.textContent = "すでに正解しています。";
+        result.style.color = "gray";
         return;
       }
 
