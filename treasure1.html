@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+_1<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -15,91 +15,87 @@
       background-position: center top;
       background-attachment: scroll;
     }
-
-    /* 入力フォームエリア */
-    .content {
-      margin-top: 40px;
-      padding: 0 20px;
+    
+    .input-group {
+      margin-bottom: 20px;
     }
-
-    input[type="text"] {
-      width: 100%;
-      max-width: 350px;
-      font-size: 22px;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    button {
-      margin-top: 20px;
-      font-size: 22px;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 8px;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
-    }
-
-    button:active {
-      background-color: #005fcc;
-    }
-
-    .error {
-      margin-top: 15px;
-      color: red;
-      font-size: 18px;
-    }
-
-    .correct{
-      margin-top: 15px;
-      color: blue;
-      font-size: 18px;
+    .result {
+      margin-top: 5px;
+      font-weight: bold;
     }
   </style>
 </head>
-
 <body>
+  <h2>宝箱の鍵を探せ！</h2>
 
+  <div id="form-container"></div>
 
-  <!-- 入力フォーム中央配置 -->
-  <div class="content">
-    <h2>一つ目の鍵穴</h2>
-
-    <form id="passwordForm">
-      <input type="text" id="keyword_1" placeholder="鍵穴１" required />
-      <br>
-      <button type="submit">鍵を回す</button>
-    </form>
-
-    <div id="errorMessage" class="error"></div>
-    <div id="correctMessage" class="correct"></div>
-  </div>
+  <button onclick="openChest()">箱を開ける</button>
 
   <script>
+    const correctAnswers = ["ルビー", "サファイア", "エメラルド", "ダイヤ", "オパール"];
+    const usedAnswers = new Set();
+    const maxInputs = 5;
+    const requiredToOpen = 3;
+    const url3 = "https://example.com/3keys";
+    const url5 = "https://example.com/5keys";
+    const results = Array(maxInputs).fill(false);
 
-    TRUE_NUM = 0;
-    const CORRECT_KEYWORD = "caps5";
-    const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/firstpage.html";
+    const container = document.getElementById("form-container");
 
-    document.getElementById("passwordForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    for (let i = 0; i < maxInputs; i++) {
+      const group = document.createElement("div");
+      group.className = "input-group";
 
-      const input = document.getElementById("keyword").value.trim();
-      const errorBox = document.getElementById("errorMessage");
-      const correctBox = document.getElementById("correctMessage");
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = `input-${i}`;
 
-      if (input === CORRECT_KEYWORD) {
-        correctBox.textContent = "鍵が回った。";
-        TRUE_NUM += 1
-      } else {
-        errorBox.textContent = "鍵が回らない。";
+      const button = document.createElement("button");
+      button.textContent = "鍵を回す";
+      button.onclick = () => checkAnswer(i);
+
+      const result = document.createElement("div");
+      result.className = "result";
+      result.id = `result-${i}`;
+
+      group.appendChild(input);
+      group.appendChild(button);
+      group.appendChild(result);
+      container.appendChild(group);
+    }
+
+    function checkAnswer(index) {
+      const input = document.getElementById(`input-${index}`);
+      const result = document.getElementById(`result-${index}`);
+      const value = input.value.trim();
+
+      if (results[index]) {
+        result.textContent = "すでに正解しています。";
+        return;
       }
-    });
-  </script>
 
+      if (correctAnswers.includes(value) && !usedAnswers.has(value)) {
+        results[index] = true;
+        usedAnswers.add(value);
+        result.textContent = "🔓 鍵が回った！";
+        result.style.color = "green";
+      } else {
+        result.textContent = "❌ 鍵が合わない…";
+        result.style.color = "red";
+      }
+    }
+
+    function openChest() {
+      const correctCount = results.filter(Boolean).length;
+      if (correctCount >= 5) {
+        window.location.href = url5;
+      } else if (correctCount >= requiredToOpen) {
+        window.location.href = url3;
+      } else {
+        alert("まだ鍵が足りないようだ…");
+      }
+    }
+  </script>
 </body>
 </html>
-
