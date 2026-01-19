@@ -14,9 +14,9 @@ _1<!DOCTYPE html>
       background-size: cover;
       background-position: center top;
       background-attachment: scroll;
+      text-align: center;
     }
-    
-    /* 入力フォームエリア */
+
     .content {
       margin-top: 40px;
       padding: 0 20px;
@@ -24,9 +24,10 @@ _1<!DOCTYPE html>
 
     .input-group {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
+      justify-content: center;
+      align-items: center;
       gap: 10px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
@@ -38,10 +39,10 @@ _1<!DOCTYPE html>
       border-radius: 8px;
       border: 1px solid #ccc;
       box-sizing: border-box;
+      opacity: 0.85;
     }
 
     button {
-      margin-top: 20px;
       font-size: 22px;
       padding: 12px 30px;
       border: none;
@@ -61,19 +62,23 @@ _1<!DOCTYPE html>
       font-weight: bold;
     }
 
-    .error {
-      margin-top: 15px;
-      color: red;
-      font-size: 18px;
+    .description {
+      font-size: 20px;
+      margin-bottom: 30px;
+      padding: 0 20px;
     }
   </style>
 </head>
 <body>
-  <h2 style="padding: 0 20px;">宝箱の鍵を探せ！</h2>
-
-  <div class="content" id="form-container"></div>
 
   <div class="content">
+    <h2 class="description">
+      宝箱を発見した。中から財宝のにおいがプンプンする。<br>
+      5つの鍵穴があるが、なんとなく3つ鍵があれば開きそうだ。
+    </h2>
+
+    <div id="form-container"></div>
+
     <button onclick="openChest()">箱を開ける</button>
   </div>
 
