@@ -10,6 +10,8 @@
       font-family: 'Segoe UI', sans-serif;
       color: white;
       background-image: url('mainpicture/treasure1.png'); /* 石碑背景画像 */
+      background-repeat: no-repeat;
+      background-size: cover;
       background-position: center top;
       text-align: center;
     }
@@ -82,7 +84,7 @@
 </head>
 <body>
 
-  <div clas = "content-section2">
+  <div class = "content-section2">
     <p>
       宝箱を発見した。中から財宝のにおいがプンプンする。<br>
       5つの鍵穴があるが、なんとなく3つ鍵があれば開きそうだ。
@@ -141,10 +143,10 @@
       if (correctAnswers.includes(value) && !usedAnswers.has(value)) {
         results[index] = true;
         usedAnswers.add(value);
-        result.textContent = "🔓 鍵が回った！";
+        result.textContent = "鍵が回った！";
         result.style.color = "green";
       } else {
-        result.textContent = "❌ 鍵が合わない…";
+        result.textContent = "鍵が合わない…";
         result.style.color = "red";
       }
     }
