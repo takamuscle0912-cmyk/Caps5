@@ -9,22 +9,36 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
       color: white;
-      background-image: url('mainpicture/treasure1.png'); /* 石碑背景画像 */
-      background-repeat: no-repeat;
+      background-image: url('backgrand.png'); /* 石碑背景画像 */
+      background-repeat: repeat-y;
       background-size: cover;
       background-position: center top;
-      text-align: center;
+      background-attachment: scroll;
     }
     
-    .content-section2 {
-      padding: 40px 40px;
+    .logo-section {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+
+    .logo-section img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .content-section {
+      padding: 40px 20px;
       background: rgba(0, 0, 0, 0.5); /* 説明文の読みやすさを確保 */
       max-width: 800px;
-      margin: 20 auto 20px;
+      margin: 0 auto 40px;
       border-radius: 12px;
     }
-    
-    .content-section2 p {
+    .content-section h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .content-section p {
       font-size: 1.1em;
       line-height: 1.8;
     }
@@ -69,8 +83,8 @@
     }
 
     .result {
-      margin-top: 5px;
-      font-size: 18px;
+      margin-top: 2px;
+      font-size: 10px;
       font-weight: bold;
     }
 
@@ -84,13 +98,18 @@
 </head>
 <body>
 
-  <div class = "content-section2">
+  <div class = "content-section">
+    <h2>宝箱を発見した。</h2>
     <p>
-      宝箱を発見した。中から財宝のにおいがプンプンする。<br>
+      中から財宝のにおいがプンプンするぞ。<br>
       5つの鍵穴があるが、なんとなく3つ鍵があれば開きそうだ。
     </p>
   </div>
-    
+  
+  <div class="logo-section">
+    <img src="mainpicture/adventurelogo.png" alt="Caps5 ADVENTURE ロゴ">
+  </div>
+  
   <div class="content">
     <div id="form-container"></div>
     <button onclick="openChest()">箱を開ける</button>
