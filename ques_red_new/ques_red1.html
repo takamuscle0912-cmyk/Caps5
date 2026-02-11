@@ -44,20 +44,45 @@
       font-size: 1.1em;
       line-height: 1.8;
     }
-
-   .content-section2 {
-      padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.5); /* 説明文の読みやすさを確保 */
-      max-width: 800px;
-      margin: 0 auto 20px;
-      border-radius: 12px;
-    }
     
-    .content-section2 p {
-      font-size: 1.1em;
-      line-height: 1.8;
+    /* 入力フォームエリア */
+    .content {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 350px;
+      font-size: 22px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      font-size: 22px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      background-color: #005fcc;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: red;
+      font-size: 18px;
     }
   </style>
+
 </head>
 <body>
 
@@ -83,7 +108,7 @@
   </div>
 
   <script>
-    const CORRECT_KEYWORD = "ニーナ";
+    const CORRECT_KEYWORD = "ランドセル";
     const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/key_red/am.png";
 
     document.getElementById("passwordForm").addEventListener("submit", function(event) {
