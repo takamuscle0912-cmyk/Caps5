@@ -64,10 +64,41 @@
   <div class="content-section">
   <h2>問題を獲得しました。</h2>
 
-  <!-- ロゴ表示 -->
+  <!-- 問題表示 -->
   <div class="logo-section">
     <img src="ques1.jpeg" alt="問題１">
   </div>
+
+  <!-- 入力フォーム中央配置 -->
+  <div class="content">
+    <h2>問題の答えを入力してください</h2>
+
+    <form id="passwordForm">
+      <input type="text" id="keyword" placeholder="答え" required />
+      <br>
+      <button type="submit">送信</button>
+    </form>
+
+    <div id="errorMessage" class="error"></div>
+  </div>
+
+  <script>
+    const CORRECT_KEYWORD = "ニーナ";
+    const REDIRECT_URL = "https://takamuscle0912-cmyk.github.io/Caps5/key_red/am.png";
+
+    document.getElementById("passwordForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const input = document.getElementById("keyword").value.trim();
+      const errorBox = document.getElementById("errorMessage");
+
+      if (input === CORRECT_KEYWORD) {
+        window.location.href = REDIRECT_URL;
+      } else {
+        errorBox.textContent = "答えが違います。もう一度入力してください。";
+      }
+    });
+  </script>
 
 
 
