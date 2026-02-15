@@ -9,7 +9,7 @@
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
       color: white;
-      background-image: url('backgrand.png'); /* 石碑背景画像 */
+      background-image: url('../mainpicture/backgrand.png'); /* 石碑背景画像 */
       background-repeat: repeat-y;
       background-size: cover;
       background-position: center top;
@@ -104,13 +104,14 @@
   <div class = "content-section">
     <h2>宝箱を発見した</h2>
     <p>
-      中から財宝のにおいがプンプンするぞ。<br>
-      5つの鍵穴があるが、なんとなく3つ鍵があれば開きそうだ。
+      5つの鍵穴がある。<br>
+      正しいキーワードを入力すれば鍵が回るようだ。
+     
     </p>
   </div>
   
   <div class="logo-section">
-    <img src="mainpicture/tri_tre_box.png" alt="treasure box picture">
+    <img src="../mainpicture/treasure_purple.jpgalt="treasure box picture">
   </div>
   
   <div class="content">
@@ -119,7 +120,7 @@
   </div>
 
   <script>
-    const correctAnswers = ["ルビー", "サファイア", "エメラルド", "ダイヤ", "オパール"];
+    const correctAnswers = ["Eternity", "Miracle", "Revelation", "Pilgrimage", "Mystery"];
     const usedAnswers = new Set();
     const maxInputs = 5;
     const requiredToOpen = 3;

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Caps5 ADVENTURE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background-image: url('../mainpicture/backgrand.png'); /* 石碑背景画像 */
+      background-repeat: repeat-y;
+      background-size: cover;
+      background-position: center top;
+      background-attachment: scroll;
+    }
+    
+    .logo-section {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .logo-section img {
+      max-width: 50%;
+      height: auto;
+    }
+
+    .content-section {
+      padding: 30px 10px;
+      background: rgba(0, 0, 0, 0.5); /* 説明文の読みやすさを確保 */
+      max-width: 650px;
+      margin: 40px auto 40px;
+      border-radius: 12px;
+    }
+    .content-section h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .content-section p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    .content {
+      margin-top: 40px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 350px;
+      font-size: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      opacity: 0.85;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      background-color: #005fcc;
+    }
+
+    .result {
+      height: 20px;
+      margin-top: 0px;
+      font-size: 16px;
+      padding-top: 4px;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 22px;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class = "content-section">
+    <h2>宝箱を発見した</h2>
+    <p>
+      5つの鍵穴がある。<br>
+      正しいキーワードを入力すれば鍵が回るようだ。
+     
+    </p>
+  </div>
+  
+  <div class="logo-section">
+    <img src="../mainpicture/treasure_blue.jpg" alt="treasure box picture">
+  </div>
+  
+  <div class="content">
+    <div id="form-container"></div>
+    <button onclick="openChest()">箱を開ける</button>
+  </div>
+
+  <script>
+    const correctAnswers = ["Courage", "Loyalty", "Honor", "Devotion", "Ordeal"];
+    const usedAnswers = new Set();
+    const maxInputs = 5;
+    const requiredToOpen = 3;
+    const url3 = "https://example.com/3keys";
+    const url5 = "https://example.com/5keys";
+    const results = Array(maxInputs).fill(false);
+
+    const container = document.getElementById("form-container");
+
+    for (let i = 0; i < maxInputs; i++) {
+      const group = document.createElement("div");
+      group.className = "input-group";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = `input-${i}`;
+
+      const button = document.createElement("button");
+      button.textContent = "鍵を回す";
+      button.onclick = () => checkAnswer(i);
+
+      const result = document.createElement("div");
+      result.className = "result";
+      result.id = `result-${i}`;
+
+      group.appendChild(input);
+      group.appendChild(button);
+      container.appendChild(result);
+      container.appendChild(group);
+    }
+
+    function checkAnswer(index) {
+      const input = document.getElementById(`input-${index}`);
+      const result = document.getElementById(`result-${index}`);
+      const value = input.value.trim();
+
+      if (results[index]) {
+        result.textContent = "すでに正解しています。";
+        result.style.color = "gray";
+        return;
+      }
+
+      if (correctAnswers.includes(value) && !usedAnswers.has(value)) {
+        results[index] = true;
+        usedAnswers.add(value);
+        result.textContent = "鍵が回った！";
+        result.style.color = "green";
+      } else {
+        result.textContent = "鍵が合わない…";
+        result.style.color = "red";
+      }
+    }
+
+    function openChest() {
+      const correctCount = results.filter(Boolean).length;
+      if (correctCount >= 5) {
+        window.location.href = url5;
+      } else if (correctCount >= requiredToOpen) {
+        window.location.href = url3;
+      } else {
+        alert("まだ鍵が足りないようだ…");
+        return;
+      }
+    }
+  </script>
+</body>
+</html>
