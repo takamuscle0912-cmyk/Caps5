@@ -14,6 +14,7 @@
       background-size: cover;
       background-position: center top;
       background-attachment: scroll;
+      text-align: center;
     }
     
     .logo-section {
@@ -22,7 +23,7 @@
     }
 
     .logo-section img {
-      max-width: 50%;
+      max-width: 100%;
       height: auto;
     }
 
@@ -30,7 +31,7 @@
       padding: 30px 10px;
       background: rgba(0, 0, 0, 0.5); /* 説明文の読みやすさを確保 */
       max-width: 650px;
-      margin: 40px auto 40px;
+      margin: 40px auto 100px;
       border-radius: 12px;
     }
     .content-section h2 {
@@ -56,6 +57,7 @@
       gap: 20px;
       margin-bottom: 20px;
       flex-wrap: wrap;
+      margin: 40px auto 40px;
     }
 
     input[type="text"] {
@@ -67,6 +69,7 @@
       border: 1px solid #ccc;
       box-sizing: border-box;
       opacity: 0.85;
+      margin: 20px auto 20px;
     }
 
     button {
@@ -77,6 +80,7 @@
       background-color: #007bff;
       color: white;
       cursor: pointer;
+      margin-top: 40px
     }
 
     button:active {
@@ -96,29 +100,43 @@
       margin-bottom: 30px;
       padding: 0 20px;
     }
-    
+
+    .key-input {
+    display: block;
+    margin: 10px auto;
+    }
+
+   
   </style>
 </head>
 <body>
 
   <div class = "content-section">
-    <h2>最深部への入り口</h2>
+    <h2>聖杯の間</h2>
     <p>
-      聖杯が眠る座標を示せ。<br>
-      迷いなき者にのみ、この門は応える。
+      よく来たのぉ。わしの命が消えぬ間に。<br>
+      私は、聖なる盃を探し出し、守ると誓った三人兄弟の生き残りじゃ。<br>
+      ずいぶん待ったぞ。さあ、杯を取るのじゃ。
     </p>
+  </div>
+
+  <div class="logo-section">
+    <img src="../mainpicture/old_knight.png" alt="Caps5 ADVENTURE ロゴ">
   </div>
   
   <div class="content">
   <div id="form-container"></div>
-  <button onclick="openChest()">扉を開ける</button>
+  <button onclick="openChest()">杯を取る</button>
 </div>
 
 <script>
-  const correctAnswers1 = ["52.5244", "13.4105"];   // セット1
+  const correctAnswers1 = ["8","6","1","6","5"];   // セット1
+  const correctAnswers2 = ["5","9","2","6","1"]; // セット2
+
   const maxInputs = 5;
 
-  const url1 = "https://takamuscle0912-cmyk.github.io/Caps5/final_room/grid.html";   // セット1 正解時
+  const url1 = "https://takamuscle0912-cmyk.github.io/Caps5/final_room/holygrail.html";   // セット1 正解時
+  const url2 = "https://takamuscle0912-cmyk.github.io/Caps5/final_room/truegrail.html";  // セット2 正解時
 
   const container = document.getElementById("form-container");
 
@@ -143,10 +161,14 @@
     // セット1 判定
     const ok1 = correctAnswers1.every(a => entered.includes(a));
 
+    // セット2 判定
+    const ok2 = correctAnswers2.every(a => entered.includes(a));
+
     if (ok1) {
       window.location.href = url1;
-    } 
-    else {
+    } else if (ok2) {
+      window.location.href = url2;
+    } else {
       alert("合言葉が違うようだ");
     }
   }
